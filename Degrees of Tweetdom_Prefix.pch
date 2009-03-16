@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Degrees of Tweetdom' target in the 'Degrees of Tweetdom' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

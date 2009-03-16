@@ -1,0 +1,454 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		A41BFADF0E6486C2007A4ED7 /* EPFriendRecommenderController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41BFADE0E6486C2007A4ED7 /* EPFriendRecommenderController.m */; };
+		A41BFB180E648847007A4ED7 /* FriendRecommender.xib in Resources */ = {isa = PBXBuildFile; fileRef = A41BFB160E648847007A4ED7 /* FriendRecommender.xib */; };
+		A41BFBAE0E648C9B007A4ED7 /* EPTwittererMapperController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41BFBAD0E648C9B007A4ED7 /* EPTwittererMapperController.m */; };
+		A41BFBB10E648D5C007A4ED7 /* TwittererMapper.xib in Resources */ = {isa = PBXBuildFile; fileRef = A41BFBAF0E648D5C007A4ED7 /* TwittererMapper.xib */; };
+		A4243D6A0E6552BD00AD1300 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4243D680E6552BD00AD1300 /* MainMenu.xib */; };
+		A43C79890DB2200E00BC1561 /* EPXMLDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C79880DB2200E00BC1561 /* EPXMLDownloadOperation.m */; };
+		A468C3650DC198250036A1ED /* EPTwittererMapHintStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A468C3640DC198250036A1ED /* EPTwittererMapHintStore.m */; };
+		A468C4D10DC9502E0036A1ED /* EPFriendRecommender.m in Sources */ = {isa = PBXBuildFile; fileRef = A468C4D00DC9502E0036A1ED /* EPFriendRecommender.m */; };
+		A47AA5C90E5C0D9A0096953E /* EPBidirectionalChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = A47AA5C80E5C0D9A0096953E /* EPBidirectionalChecker.m */; };
+		A47AA5CF0E5C0EBB0096953E /* EPFriendAndFollowerGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = A47AA5CE0E5C0EBB0096953E /* EPFriendAndFollowerGetter.m */; };
+		A47AA9920E5F51460096953E /* EPBidirectionalCheckerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A47AA9910E5F51460096953E /* EPBidirectionalCheckerController.m */; };
+		A47AA9EB0E5F52910096953E /* BidirectionalChecker.xib in Resources */ = {isa = PBXBuildFile; fileRef = A47AA9E90E5F52910096953E /* BidirectionalChecker.xib */; };
+		A47AAA170E5F57730096953E /* EPAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = A47AAA160E5F57730096953E /* EPAppController.m */; };
+		A47AAABE0E6152090096953E /* EPTwittererChainFinderController.m in Sources */ = {isa = PBXBuildFile; fileRef = A47AAABD0E6152090096953E /* EPTwittererChainFinderController.m */; };
+		A47AAAE20E6154AD0096953E /* TwittererChainFinder.xib in Resources */ = {isa = PBXBuildFile; fileRef = A47AAAE00E6154AD0096953E /* TwittererChainFinder.xib */; };
+		A49FBE5A0DBACC1C000F47AF /* EPTwittererMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A49FBE590DBACC1C000F47AF /* EPTwittererMapper.m */; };
+		A4ACE4170DADD1C7007CE02D /* CHeap.mm in Sources */ = {isa = PBXBuildFile; fileRef = A4ACE4100DADD1C7007CE02D /* CHeap.mm */; };
+		A4ACE4180DADD1C7007CE02D /* CPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ACE4120DADD1C7007CE02D /* CPriorityQueue.m */; };
+		A4ACE4190DADD1C7007CE02D /* CThreadPool.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ACE4140DADD1C7007CE02D /* CThreadPool.m */; };
+		A4ACE41A0DADD1C7007CE02D /* NSConditionLock_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ACE4160DADD1C7007CE02D /* NSConditionLock_Extensions.m */; };
+		A4ACE4260DADD3DB007CE02D /* EPTwittererChainFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ACE4250DADD3DB007CE02D /* EPTwittererChainFinder.m */; };
+		A4ACE4BE0DADE244007CE02D /* EPTwittererChain.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ACE4BD0DADE244007CE02D /* EPTwittererChain.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32CA4F630368D1EE00C91783 /* Degrees of Tweetdom_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Degrees of Tweetdom_Prefix.pch"; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* Degrees of Tweetdom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Degrees of Tweetdom.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A41BFADD0E6486C2007A4ED7 /* EPFriendRecommenderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPFriendRecommenderController.h; sourceTree = "<group>"; };
+		A41BFADE0E6486C2007A4ED7 /* EPFriendRecommenderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPFriendRecommenderController.m; sourceTree = "<group>"; };
+		A41BFB170E648847007A4ED7 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/FriendRecommender.xib; sourceTree = "<group>"; };
+		A41BFBAC0E648C9B007A4ED7 /* EPTwittererMapperController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPTwittererMapperController.h; sourceTree = "<group>"; };
+		A41BFBAD0E648C9B007A4ED7 /* EPTwittererMapperController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPTwittererMapperController.m; sourceTree = "<group>"; };
+		A41BFBB00E648D5C007A4ED7 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TwittererMapper.xib; sourceTree = "<group>"; };
+		A4243D690E6552BD00AD1300 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		A43C79870DB2200E00BC1561 /* EPXMLDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPXMLDownloadOperation.h; sourceTree = "<group>"; };
+		A43C79880DB2200E00BC1561 /* EPXMLDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPXMLDownloadOperation.m; sourceTree = "<group>"; };
+		A43C7ABC0DB234F700BC1561 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
+		A468C3630DC198250036A1ED /* EPTwittererMapHintStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPTwittererMapHintStore.h; sourceTree = "<group>"; };
+		A468C3640DC198250036A1ED /* EPTwittererMapHintStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPTwittererMapHintStore.m; sourceTree = "<group>"; };
+		A468C4CF0DC9502E0036A1ED /* EPFriendRecommender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPFriendRecommender.h; sourceTree = "<group>"; };
+		A468C4D00DC9502E0036A1ED /* EPFriendRecommender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPFriendRecommender.m; sourceTree = "<group>"; };
+		A47AA5C70E5C0D9A0096953E /* EPBidirectionalChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPBidirectionalChecker.h; sourceTree = "<group>"; };
+		A47AA5C80E5C0D9A0096953E /* EPBidirectionalChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPBidirectionalChecker.m; sourceTree = "<group>"; };
+		A47AA5CD0E5C0EBB0096953E /* EPFriendAndFollowerGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPFriendAndFollowerGetter.h; sourceTree = "<group>"; };
+		A47AA5CE0E5C0EBB0096953E /* EPFriendAndFollowerGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPFriendAndFollowerGetter.m; sourceTree = "<group>"; };
+		A47AA9900E5F51460096953E /* EPBidirectionalCheckerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPBidirectionalCheckerController.h; sourceTree = "<group>"; };
+		A47AA9910E5F51460096953E /* EPBidirectionalCheckerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPBidirectionalCheckerController.m; sourceTree = "<group>"; };
+		A47AA9EA0E5F52910096953E /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/BidirectionalChecker.xib; sourceTree = "<group>"; };
+		A47AAA150E5F57730096953E /* EPAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPAppController.h; sourceTree = "<group>"; };
+		A47AAA160E5F57730096953E /* EPAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPAppController.m; sourceTree = "<group>"; };
+		A47AAABC0E6152090096953E /* EPTwittererChainFinderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPTwittererChainFinderController.h; sourceTree = "<group>"; };
+		A47AAABD0E6152090096953E /* EPTwittererChainFinderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPTwittererChainFinderController.m; sourceTree = "<group>"; };
+		A47AAAE10E6154AD0096953E /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TwittererChainFinder.xib; sourceTree = "<group>"; };
+		A49FBE580DBACC1C000F47AF /* EPTwittererMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPTwittererMapper.h; sourceTree = "<group>"; };
+		A49FBE590DBACC1C000F47AF /* EPTwittererMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPTwittererMapper.m; sourceTree = "<group>"; };
+		A4ACE40E0DADD1C7007CE02D /* CCocoaObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCocoaObject.h; sourceTree = "<group>"; };
+		A4ACE40F0DADD1C7007CE02D /* CHeap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHeap.h; sourceTree = "<group>"; };
+		A4ACE4100DADD1C7007CE02D /* CHeap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CHeap.mm; sourceTree = "<group>"; };
+		A4ACE4110DADD1C7007CE02D /* CPriorityQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPriorityQueue.h; sourceTree = "<group>"; };
+		A4ACE4120DADD1C7007CE02D /* CPriorityQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPriorityQueue.m; sourceTree = "<group>"; };
+		A4ACE4130DADD1C7007CE02D /* CThreadPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CThreadPool.h; sourceTree = "<group>"; };
+		A4ACE4140DADD1C7007CE02D /* CThreadPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CThreadPool.m; sourceTree = "<group>"; };
+		A4ACE4150DADD1C7007CE02D /* NSConditionLock_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSConditionLock_Extensions.h; sourceTree = "<group>"; };
+		A4ACE4160DADD1C7007CE02D /* NSConditionLock_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSConditionLock_Extensions.m; sourceTree = "<group>"; };
+		A4ACE4240DADD3DB007CE02D /* EPTwittererChainFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPTwittererChainFinder.h; sourceTree = "<group>"; };
+		A4ACE4250DADD3DB007CE02D /* EPTwittererChainFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPTwittererChainFinder.m; sourceTree = "<group>"; };
+		A4ACE4BC0DADE244007CE02D /* EPTwittererChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPTwittererChain.h; sourceTree = "<group>"; };
+		A4ACE4BD0DADE244007CE02D /* EPTwittererChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPTwittererChain.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* Degrees of Tweetdom.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Degrees of Tweetdom */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = "Degrees of Tweetdom";
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A47AAA150E5F57730096953E /* EPAppController.h */,
+				A47AAA160E5F57730096953E /* EPAppController.m */,
+				A47AA5CD0E5C0EBB0096953E /* EPFriendAndFollowerGetter.h */,
+				A47AA5CE0E5C0EBB0096953E /* EPFriendAndFollowerGetter.m */,
+				A43C79870DB2200E00BC1561 /* EPXMLDownloadOperation.h */,
+				A43C79880DB2200E00BC1561 /* EPXMLDownloadOperation.m */,
+				A4ACE4BC0DADE244007CE02D /* EPTwittererChain.h */,
+				A4ACE4BD0DADE244007CE02D /* EPTwittererChain.m */,
+				A468C3630DC198250036A1ED /* EPTwittererMapHintStore.h */,
+				A468C3640DC198250036A1ED /* EPTwittererMapHintStore.m */,
+				A47AA9900E5F51460096953E /* EPBidirectionalCheckerController.h */,
+				A47AA9910E5F51460096953E /* EPBidirectionalCheckerController.m */,
+				A47AAABC0E6152090096953E /* EPTwittererChainFinderController.h */,
+				A47AAABD0E6152090096953E /* EPTwittererChainFinderController.m */,
+				A41BFADD0E6486C2007A4ED7 /* EPFriendRecommenderController.h */,
+				A41BFADE0E6486C2007A4ED7 /* EPFriendRecommenderController.m */,
+				A41BFBAC0E648C9B007A4ED7 /* EPTwittererMapperController.h */,
+				A41BFBAD0E648C9B007A4ED7 /* EPTwittererMapperController.m */,
+				A47AA5C70E5C0D9A0096953E /* EPBidirectionalChecker.h */,
+				A47AA5C80E5C0D9A0096953E /* EPBidirectionalChecker.m */,
+				A4ACE4240DADD3DB007CE02D /* EPTwittererChainFinder.h */,
+				A4ACE4250DADD3DB007CE02D /* EPTwittererChainFinder.m */,
+				A49FBE580DBACC1C000F47AF /* EPTwittererMapper.h */,
+				A49FBE590DBACC1C000F47AF /* EPTwittererMapper.m */,
+				A468C4CF0DC9502E0036A1ED /* EPFriendRecommender.h */,
+				A468C4D00DC9502E0036A1ED /* EPFriendRecommender.m */,
+				32CA4F630368D1EE00C91783 /* Degrees of Tweetdom_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+				A4ACE40D0DADD1C7007CE02D /* Utilities */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A43C7ABC0DB234F700BC1561 /* License.txt */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				A47AA9E90E5F52910096953E /* BidirectionalChecker.xib */,
+				A47AAAE00E6154AD0096953E /* TwittererChainFinder.xib */,
+				A41BFB160E648847007A4ED7 /* FriendRecommender.xib */,
+				A41BFBAF0E648D5C007A4ED7 /* TwittererMapper.xib */,
+				A4243D680E6552BD00AD1300 /* MainMenu.xib */,
+				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A4ACE40D0DADD1C7007CE02D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A4ACE40E0DADD1C7007CE02D /* CCocoaObject.h */,
+				A4ACE40F0DADD1C7007CE02D /* CHeap.h */,
+				A4ACE4100DADD1C7007CE02D /* CHeap.mm */,
+				A4ACE4110DADD1C7007CE02D /* CPriorityQueue.h */,
+				A4ACE4120DADD1C7007CE02D /* CPriorityQueue.m */,
+				A4ACE4130DADD1C7007CE02D /* CThreadPool.h */,
+				A4ACE4140DADD1C7007CE02D /* CThreadPool.m */,
+				A4ACE4150DADD1C7007CE02D /* NSConditionLock_Extensions.h */,
+				A4ACE4160DADD1C7007CE02D /* NSConditionLock_Extensions.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* Degrees of Tweetdom */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Degrees of Tweetdom" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Degrees of Tweetdom";
+			productInstallPath = "$(HOME)/Applications";
+			productName = "Degrees of Tweetdom";
+			productReference = 8D1107320486CEB800E47090 /* Degrees of Tweetdom.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Degrees of Tweetdom" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Degrees of Tweetdom */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* Degrees of Tweetdom */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				A47AA9EB0E5F52910096953E /* BidirectionalChecker.xib in Resources */,
+				A47AAAE20E6154AD0096953E /* TwittererChainFinder.xib in Resources */,
+				A41BFB180E648847007A4ED7 /* FriendRecommender.xib in Resources */,
+				A41BFBB10E648D5C007A4ED7 /* TwittererMapper.xib in Resources */,
+				A4243D6A0E6552BD00AD1300 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				A4ACE4170DADD1C7007CE02D /* CHeap.mm in Sources */,
+				A4ACE4180DADD1C7007CE02D /* CPriorityQueue.m in Sources */,
+				A4ACE4190DADD1C7007CE02D /* CThreadPool.m in Sources */,
+				A4ACE41A0DADD1C7007CE02D /* NSConditionLock_Extensions.m in Sources */,
+				A4ACE4260DADD3DB007CE02D /* EPTwittererChainFinder.m in Sources */,
+				A4ACE4BE0DADE244007CE02D /* EPTwittererChain.m in Sources */,
+				A43C79890DB2200E00BC1561 /* EPXMLDownloadOperation.m in Sources */,
+				A49FBE5A0DBACC1C000F47AF /* EPTwittererMapper.m in Sources */,
+				A468C3650DC198250036A1ED /* EPTwittererMapHintStore.m in Sources */,
+				A468C4D10DC9502E0036A1ED /* EPFriendRecommender.m in Sources */,
+				A47AA5C90E5C0D9A0096953E /* EPBidirectionalChecker.m in Sources */,
+				A47AA5CF0E5C0EBB0096953E /* EPFriendAndFollowerGetter.m in Sources */,
+				A47AA9920E5F51460096953E /* EPBidirectionalCheckerController.m in Sources */,
+				A47AAA170E5F57730096953E /* EPAppController.m in Sources */,
+				A47AAABE0E6152090096953E /* EPTwittererChainFinderController.m in Sources */,
+				A41BFADF0E6486C2007A4ED7 /* EPFriendRecommenderController.m in Sources */,
+				A41BFBAE0E648C9B007A4ED7 /* EPTwittererMapperController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		29B97318FDCFA39411CA2CEA /* MainMenu.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29B97319FDCFA39411CA2CEA /* English */,
+			);
+			name = MainMenu.nib;
+			sourceTree = "<group>";
+		};
+		A41BFB160E648847007A4ED7 /* FriendRecommender.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A41BFB170E648847007A4ED7 /* English */,
+			);
+			name = FriendRecommender.xib;
+			sourceTree = "<group>";
+		};
+		A41BFBAF0E648D5C007A4ED7 /* TwittererMapper.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A41BFBB00E648D5C007A4ED7 /* English */,
+			);
+			name = TwittererMapper.xib;
+			sourceTree = "<group>";
+		};
+		A4243D680E6552BD00AD1300 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4243D690E6552BD00AD1300 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		A47AA9E90E5F52910096953E /* BidirectionalChecker.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A47AA9EA0E5F52910096953E /* English */,
+			);
+			name = BidirectionalChecker.xib;
+			sourceTree = "<group>";
+		};
+		A47AAAE00E6154AD0096953E /* TwittererChainFinder.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A47AAAE10E6154AD0096953E /* English */,
+			);
+			name = TwittererChainFinder.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(NATIVE_ARCH)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Degrees of Tweetdom_Prefix.pch";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = "Degrees of Tweetdom";
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Degrees of Tweetdom_Prefix.pch";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = "Degrees of Tweetdom";
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Degrees of Tweetdom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Degrees of Tweetdom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
