@@ -32,6 +32,10 @@
 		A4ACE41A0DADD1C7007CE02D /* NSConditionLock_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ACE4160DADD1C7007CE02D /* NSConditionLock_Extensions.m */; };
 		A4ACE4260DADD3DB007CE02D /* EPTwittererChainFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ACE4250DADD3DB007CE02D /* EPTwittererChainFinder.m */; };
 		A4ACE4BE0DADE244007CE02D /* EPTwittererChain.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ACE4BD0DADE244007CE02D /* EPTwittererChain.m */; };
+		A4C0587B0F7DEE700054A743 /* EPFavoritesDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0587A0F7DEE700054A743 /* EPFavoritesDownloadOperation.m */; };
+		A4C058820F7DF36F0054A743 /* EPFavoriteFinderController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C058810F7DF36F0054A743 /* EPFavoriteFinderController.m */; };
+		A4C058890F7DF3920054A743 /* EPFavoriteFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C058880F7DF3920054A743 /* EPFavoriteFinder.m */; };
+		A4C0588F0F7DF50D0054A743 /* FavoriteFinder.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4C0588E0F7DF50D0054A743 /* FavoriteFinder.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +90,13 @@
 		A4ACE4250DADD3DB007CE02D /* EPTwittererChainFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPTwittererChainFinder.m; sourceTree = "<group>"; };
 		A4ACE4BC0DADE244007CE02D /* EPTwittererChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPTwittererChain.h; sourceTree = "<group>"; };
 		A4ACE4BD0DADE244007CE02D /* EPTwittererChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPTwittererChain.m; sourceTree = "<group>"; };
+		A4C058790F7DEE700054A743 /* EPFavoritesDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPFavoritesDownloadOperation.h; sourceTree = "<group>"; };
+		A4C0587A0F7DEE700054A743 /* EPFavoritesDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPFavoritesDownloadOperation.m; sourceTree = "<group>"; };
+		A4C058800F7DF36F0054A743 /* EPFavoriteFinderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPFavoriteFinderController.h; sourceTree = "<group>"; };
+		A4C058810F7DF36F0054A743 /* EPFavoriteFinderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPFavoriteFinderController.m; sourceTree = "<group>"; };
+		A4C058870F7DF3920054A743 /* EPFavoriteFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPFavoriteFinder.h; sourceTree = "<group>"; };
+		A4C058880F7DF3920054A743 /* EPFavoriteFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPFavoriteFinder.m; sourceTree = "<group>"; };
+		A4C0588C0F7DF4F80054A743 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/FavoriteFinder.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +165,12 @@
 				A47AA5CE0E5C0EBB0096953E /* EPFriendAndFollowerGetter.m */,
 				A43C79870DB2200E00BC1561 /* EPXMLDownloadOperation.h */,
 				A43C79880DB2200E00BC1561 /* EPXMLDownloadOperation.m */,
+				A4C058870F7DF3920054A743 /* EPFavoriteFinder.h */,
+				A4C058880F7DF3920054A743 /* EPFavoriteFinder.m */,
+				A4C058790F7DEE700054A743 /* EPFavoritesDownloadOperation.h */,
+				A4C0587A0F7DEE700054A743 /* EPFavoritesDownloadOperation.m */,
+				A4C058800F7DF36F0054A743 /* EPFavoriteFinderController.h */,
+				A4C058810F7DF36F0054A743 /* EPFavoriteFinderController.m */,
 				A4ACE4BC0DADE244007CE02D /* EPTwittererChain.h */,
 				A4ACE4BD0DADE244007CE02D /* EPTwittererChain.m */,
 				A468C3630DC198250036A1ED /* EPTwittererMapHintStore.h */,
@@ -191,6 +208,7 @@
 				A47AAAE00E6154AD0096953E /* TwittererChainFinder.xib */,
 				A41BFB160E648847007A4ED7 /* FriendRecommender.xib */,
 				A41BFBAF0E648D5C007A4ED7 /* TwittererMapper.xib */,
+				A4C0588E0F7DF50D0054A743 /* FavoriteFinder.xib */,
 				A4243D680E6552BD00AD1300 /* MainMenu.xib */,
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
 			);
@@ -271,6 +289,7 @@
 				A41BFB180E648847007A4ED7 /* FriendRecommender.xib in Resources */,
 				A41BFBB10E648D5C007A4ED7 /* TwittererMapper.xib in Resources */,
 				A4243D6A0E6552BD00AD1300 /* MainMenu.xib in Resources */,
+				A4C0588F0F7DF50D0054A743 /* FavoriteFinder.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +318,9 @@
 				A47AAABE0E6152090096953E /* EPTwittererChainFinderController.m in Sources */,
 				A41BFADF0E6486C2007A4ED7 /* EPFriendRecommenderController.m in Sources */,
 				A41BFBAE0E648C9B007A4ED7 /* EPTwittererMapperController.m in Sources */,
+				A4C0587B0F7DEE700054A743 /* EPFavoritesDownloadOperation.m in Sources */,
+				A4C058820F7DF36F0054A743 /* EPFavoriteFinderController.m in Sources */,
+				A4C058890F7DF3920054A743 /* EPFavoriteFinder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +381,14 @@
 				A47AAAE10E6154AD0096953E /* English */,
 			);
 			name = TwittererChainFinder.xib;
+			sourceTree = "<group>";
+		};
+		A4C0588E0F7DF50D0054A743 /* FavoriteFinder.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4C0588C0F7DF4F80054A743 /* English */,
+			);
+			name = FavoriteFinder.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

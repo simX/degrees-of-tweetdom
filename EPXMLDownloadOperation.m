@@ -76,7 +76,7 @@
 	}
 	
 	if ([[NSFileManager defaultManager] fileExistsAtPath:fileLocationPath]) {
-		// the friends XML file has already been downloaded, so it doesn't need to be downloaded again
+		// the list of friends have already been downloaded, so it doesn't need to be downloaded again
 		
 		// in the future, this block should check the modification date and recache the file if it's a week old or so
 	} else {
@@ -108,54 +108,21 @@
 				noMoreFriends = YES;
 			} else*/
 			
+			NSError *xPathError = nil;
+			NSArray *friendANodeArray = [pageOfTwentyFriends nodesForXPath:@".//a[@class='url uid']" error:&xPathError];
 			
+			if ([friendANodeArray count] < 20) noMoreFriends = YES;
 			
-			// the following code is structured this way because there were some random
-			// hanging errors if I strung all the calls together at once; this may have been
-			// due, however, to the fact that the friends.html and followers.html files were
-			// structured slightly differently and I originally assumed they were
-			// structured identically
-			
-			NSXMLNode *divNode = [[[pageOfTwentyFriends childAtIndex:0] childAtIndex:1] childAtIndex:3];
-			[divNode detach];
-			
-			NSXMLNode *divNodeTwo = [divNode childAtIndex:4];
-			[divNodeTwo detach];
-		
-			NSXMLNode *divNodeThree = [divNodeTwo childAtIndex:0];
-			[divNodeThree detach];
-		
-			NSXMLNode *tableNode = nil;
-			if (twitterPassword) {
-				NSXMLNode *divNodeFour = [divNodeThree childAtIndex:0];
-				[divNodeFour detach];
+			NSXMLNode *currentNode = nil;
+			for (currentNode in friendANodeArray) {
+				NSString *friendLink = [[(NSXMLElement *)currentNode attributeForName:@"href"] stringValue];
+				NSString *friendHandle = [[friendLink componentsSeparatedByString:@"http://twitter.com/"] objectAtIndex:1];
+				//NSLog(@"friendHandle = %@",friendHandle);
 				
-				tableNode = [divNodeFour childAtIndex:2];
-				[tableNode detach];
-			} else {
-				tableNode = [divNodeThree childAtIndex:1];
-				[tableNode detach];
+				[arrayOfFriends addObject:friendHandle];
 			}
 			
-			if ([tableNode childCount] == 1) {
-				// the hiearchy when this code was created is as follows:
-				// html --> head --> body --> div id="container" --> div id="content" --> 
-				// div class="wrapper" --> div id="followers" --> table class="follower-table doing"
-				
-				// this is the first page that returns no friends
-				noMoreFriends = YES;
-			} else {
-				NSArray *potentialTwentyFriendsArray = [self extractFriendsFromTableNode:tableNode];
-				if (potentialTwentyFriendsArray == nil) {
-					// this could be a temporary error in retrieving the page;
-					// error-handling could be improved here, but for now let's assume this means no more friends
-					noMoreFriends = YES;
-				} else {
-					[arrayOfFriends addObjectsFromArray:potentialTwentyFriendsArray];
-				}
-			}
-			
-			[pageOfTwentyFriends setChildren:nil];
+
 			[pageOfTwentyFriends release];
 			[pageOfTwentyFriends release];
 			
@@ -169,6 +136,60 @@
 						 atomically:YES];
 		[arrayOfFriends release];
 	}
+}
+
+- (void)oldHTMLScrapingCode;
+{
+	/*
+	
+	// the following code is structured this way because there were some random
+	// hanging errors if I strung all the calls together at once; this may have been
+	// due, however, to the fact that the friends.html and followers.html files were
+	// structured slightly differently and I originally assumed they were
+	// structured identically
+	
+	NSXMLNode *divNode = [[[pageOfTwentyFriends childAtIndex:0] childAtIndex:1] childAtIndex:3];
+	[divNode detach];
+	
+	NSXMLNode *divNodeTwo = [divNode childAtIndex:4];
+	[divNodeTwo detach];
+	
+	NSXMLNode *divNodeThree = [divNodeTwo childAtIndex:0];
+	[divNodeThree detach];
+	
+	NSXMLNode *tableNode = nil;
+	if (twitterPassword) {
+		NSXMLNode *divNodeFour = [divNodeThree childAtIndex:0];
+		[divNodeFour detach];
+		
+		tableNode = [divNodeFour childAtIndex:2];
+		[tableNode detach];
+	} else {
+		tableNode = [divNodeThree childAtIndex:1];
+		[tableNode detach];
+	}
+	
+	if ([tableNode childCount] == 1) {
+		// the hiearchy when this code was created is as follows:
+		// html --> head --> body --> div id="container" --> div id="content" --> 
+		// div class="wrapper" --> div id="followers" --> table class="follower-table doing"
+		
+		// this is the first page that returns no friends
+		noMoreFriends = YES;
+	} else {
+		NSArray *potentialTwentyFriendsArray = [self extractFriendsFromTableNode:tableNode];
+		if (potentialTwentyFriendsArray == nil) {
+			// this could be a temporary error in retrieving the page;
+			// error-handling could be improved here, but for now let's assume this means no more friends
+			noMoreFriends = YES;
+		} else {
+			[arrayOfFriends addObjectsFromArray:potentialTwentyFriendsArray];
+		}
+	}
+	
+	[pageOfTwentyFriends setChildren:nil];	
+	 
+	 */
 }
 
 

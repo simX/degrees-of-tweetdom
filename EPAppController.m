@@ -11,6 +11,7 @@
 #import "EPTwittererChainFinderController.h"
 #import "EPFriendRecommenderController.h"
 #import "EPTwittererMapperController.h"
+#import "EPFavoriteFinderController.h"
 
 
 @implementation EPAppController
@@ -110,6 +111,13 @@
 	EPTwittererMapperController *newTwittererMapperController = [[EPTwittererMapperController alloc] init];
 	[newTwittererMapperController showWindow:self];
 	[newTwittererMapperController release];
+}
+
+- (IBAction)createNewFavoriteFinderWindow:(id)sender;
+{
+	EPFavoriteFinderController *newFavoriteFinderController = [[EPFavoriteFinderController alloc] init];
+	[newFavoriteFinderController showWindow:self];
+	[newFavoriteFinderController release];
 }
 
 @end

@@ -24,5 +24,6 @@
 - (IBAction)createNewTwittererChainFinderWindow:(id)sender;
 - (IBAction)createNewFriendRecommenderWindow:(id)sender;
 - (IBAction)createNewTwittererMapperWindow:(id)sender;
+- (IBAction)createNewFavoriteFinderWindow:(id)sender;
 
 @end
