@@ -36,8 +36,7 @@
 
 - (void)setTwitterHandle:(NSString *)newTwitterHandle;
 {
-	twitterHandle = @"stalefries";
-	//twitterHandle = [newTwitterHandle retain];
+	twitterHandle = [newTwitterHandle retain];
 }
 
 
@@ -47,7 +46,7 @@
 	NSString *fileLocationPath = [[NSString stringWithFormat:@"~/Library/Caches/Degrees of Tweetdom/Favorites/%@.plist",twitterHandle] stringByExpandingTildeInPath];
 	
 	if ([[NSFileManager defaultManager] fileExistsAtPath:fileLocationPath]) {
-		// the friends XML file has already been downloaded, so it doesn't need to be downloaded again
+		// the favorites have already been downloaded, so they don't need to be downloaded again
 		
 		// in the future, this block should check the modification date and recache the file if it's a week old or so
 	} else {
