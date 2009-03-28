@@ -52,7 +52,10 @@
 		[someWinningChains retain];
 		[arrayOfWinningChains addObjectsFromArray:someWinningChains];
 		[someWinningChains release];
+		[tempArray release];
 	}
+	
+	[theMapHintStore release];
 	
 	NSMutableArray *arrayOfMapChainSteps = [[NSMutableArray alloc] init];
 	NSMutableArray *arrayOfTwitterersOnMap = [[NSMutableArray alloc] init];
@@ -108,6 +111,8 @@
 						   encoding:NSUTF8StringEncoding
 							  error:&fileWriteError];
 	
+	[graphvizFileString release];
+	
 	if (fileWriteError) [statusDelegate addStatusLine:[fileWriteError localizedDescription]];
 	[arrayOfWinningChains release];
 	
@@ -129,19 +134,26 @@
 			//						  [[[[[twittererTimelineXMLDoc childAtIndex:0] childAtIndex:0] childAtIndex:8] childAtIndex:5] stringValue]];
 			
 			NSImage *profileImage = [[NSImage alloc] initWithContentsOfURL:profileImageURL];
-			if (! profileImage) profileImage = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://static.twitter.com/images/default_profile_bigger.png"]];
+			if (! profileImage) {
+				[profileImage release];
+				profileImage = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://static.twitter.com/images/default_profile_bigger.png"]];
+			}
 			[profileImage setSize:NSMakeSize(48,48)];
 			NSData *profileImageData = [NSBitmapImageRep representationOfImageRepsInArray:[profileImage representations] usingType:NSPNGFileType properties:nil];
 			
 			[profileImageData
 			 writeToFile:[[NSString stringWithFormat:@"~/Library/Caches/Degrees of Tweetdom/%@.png",nextTwitterer] stringByExpandingTildeInPath]
 			 atomically:YES];
+			
+			[profileImage release];
 		} else {
 			// there's an error; this happens if the updates are protected
 			
 			// this can be worked around here by getting the HTML file at twitter.com/twitterHandle and scraping
 			// the HTML for the user's avatar
 		}
+		
+		[twittererTimelineXMLDoc release];
 	}
 	
 	[statusDelegate addStatusLine:@"Twitter map resources written to ~/Library/Caches/Degrees of Tweetdom/\n"];
@@ -161,6 +173,10 @@
 	[statusDelegate addStatusLine:@"Done creating Twitterer map.\n"];
 	
 	NSImage *theMapImage = [[NSImage alloc] initWithContentsOfFile:[@"~/Library/Caches/Degrees of Tweetdom/twitterer-map.png" stringByExpandingTildeInPath]];
+	
+	[arrayOfTwitterersOnMap release];
+	[arrayOfMapChainSteps release];
+	[twittererChainFinder release];
 	
 	return [theMapImage autorelease];	
 }

@@ -71,9 +71,10 @@
 	} else {
 		NSMutableDictionary *newSpecificTwittererHintsDict = [[NSMutableDictionary alloc] init];
 		[newSpecificTwittererHintsDict setObject:partialTwitterChain forKey:[partialTwitterChain firstTwittererInChain]];
-		[newSpecificTwittererHintsDict release];
 		 
 		[twitterMapHintsDict setObject:newSpecificTwittererHintsDict forKey:[partialTwitterChain lastTwittererInChain]];
+	
+		[newSpecificTwittererHintsDict release];
 	}
 }
 

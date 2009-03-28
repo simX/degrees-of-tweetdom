@@ -100,7 +100,7 @@
 			}
 			
 			pageNum++;
-			
+			[pageOfTwentyFriends release];
 		}
 		
 		[arrayOfFavorites writeToFile:fileLocationPath

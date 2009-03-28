@@ -41,6 +41,7 @@
 	NSDictionaryController *authedFavDictController = [[NSDictionaryController alloc] initWithContent:authoredFavoritesDict];
 	NSArray *sortedAuthoredFavoritesArray = [[authedFavDictController arrangedObjects] sortedArrayUsingFunction:favoritersSortDescending context:nil];
 	
+	[authedFavDictController release];
 	//NSLog(@"%@",sortedAuthoredFavoritesArray);
 	
 	
@@ -65,7 +66,7 @@
 		
 int favoritersSortDescending(id firstFav, id secondFav, void *context)
 {
-	int result;
+	int result = NSOrderedSame; // initialize to some value
 	int firstFavCount = [[firstFav value] count];
 	int secondFavCount = [[secondFav value] count];
 	

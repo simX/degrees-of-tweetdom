@@ -101,6 +101,7 @@
 	[twitterersToSearchArray release];
 	[twitterersAlreadySearchedArray release];
 	[friendRecommendations release];
+	[friendAndFollowerGetterInstance release];
 	
 	return [allRecommendationsString autorelease];
 }
