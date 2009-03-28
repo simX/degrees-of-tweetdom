@@ -350,40 +350,42 @@
 	
 	NSXMLDocument *userTimelineXMLDoc = nil;
 	if (TURN_ON_HTML_SCRAPING) {
-		userTimelineXMLDoc = [[NSXMLDocument alloc] initWithContentsOfURL:[NSURL URLWithString:
-																						  [[NSString stringWithFormat:@"http://twitter.com/%@",twitterHandle]
-																						   stringByExpandingTildeInPath]]
-																				 options:NSXMLDocumentTidyHTML
-																				   error:&XMLDocError];
-		
-		// NSXMLDocument gives errors for warnings after converting to XHTML, so we
-		// don't want to stop here if there are errors, because the URL could still
-		// have been loaded correctly
-		
-		NSError *xPathError = nil;
-		NSArray *h2Array = [userTimelineXMLDoc nodesForXPath:@"//h2[@class='thumb clearfix']" error:&xPathError];
-		if (xPathError) NSLog(@"%@",xPathError);
-		
-		xPathError = nil;
-		NSArray *aArray = [[h2Array objectAtIndex:0] nodesForXPath:@".//a" error:&xPathError];
-		NSXMLElement *aTag = (NSXMLElement *)[aArray objectAtIndex:0];
-		
-		
-		/*NSXMLElement *htmlTag = (NSXMLElement *)[userTimelineXMLDoc childAtIndex:0];
-		NSXMLElement *bodyTag = (NSXMLElement *)[htmlTag childAtIndex:1];
-		NSXMLElement *divContainerTag = (NSXMLElement *)[bodyTag childAtIndex:2];
-		NSXMLElement *tableTag = (NSXMLElement *)[divContainerTag childAtIndex:7];
-		NSXMLElement *tbodyTag = (NSXMLElement *)[tableTag childAtIndex:1]; // this should be the first child tag, but isn't
-		NSXMLElement *trTag = (NSXMLElement *)[tbodyTag childAtIndex:0];
-		NSXMLElement *tdTag = (NSXMLElement *)[trTag childAtIndex:0];
-		NSXMLElement *divWrapperTag = (NSXMLElement *)[tdTag childAtIndex:0];
-		NSXMLElement *divProfileHeadTag = (NSXMLElement *)[divWrapperTag childAtIndex:0];
-		NSXMLElement *h2Tag = (NSXMLElement *)[divProfileHeadTag childAtIndex:0];
-		NSXMLElement *aTag = (NSXMLElement *)[h2Tag childAtIndex:0];*/
-
-		
-		NSString *theHref = [[aTag attributeForName:@"href"] stringValue]; 
-		validatedTwitterName = [theHref lastPathComponent];
+		NSURL *userTimelineURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://twitter.com/%@",twitterHandle]];
+		if (userTimelineURL) {
+			userTimelineXMLDoc = [[NSXMLDocument alloc] initWithContentsOfURL:userTimelineURL
+																	  options:NSXMLDocumentTidyHTML
+																		error:&XMLDocError];
+			
+			
+			// NSXMLDocument gives errors for warnings after converting to XHTML, so we
+			// don't want to stop here if there are errors, because the URL could still
+			// have been loaded correctly
+			
+			NSError *xPathError = nil;
+			NSArray *h2Array = [userTimelineXMLDoc nodesForXPath:@"//h2[@class='thumb clearfix']" error:&xPathError];
+			if (xPathError) NSLog(@"%@",xPathError);
+			
+			xPathError = nil;
+			NSArray *aArray = [[h2Array objectAtIndex:0] nodesForXPath:@".//a" error:&xPathError];
+			NSXMLElement *aTag = (NSXMLElement *)[aArray objectAtIndex:0];
+			
+			
+			/*NSXMLElement *htmlTag = (NSXMLElement *)[userTimelineXMLDoc childAtIndex:0];
+			 NSXMLElement *bodyTag = (NSXMLElement *)[htmlTag childAtIndex:1];
+			 NSXMLElement *divContainerTag = (NSXMLElement *)[bodyTag childAtIndex:2];
+			 NSXMLElement *tableTag = (NSXMLElement *)[divContainerTag childAtIndex:7];
+			 NSXMLElement *tbodyTag = (NSXMLElement *)[tableTag childAtIndex:1]; // this should be the first child tag, but isn't
+			 NSXMLElement *trTag = (NSXMLElement *)[tbodyTag childAtIndex:0];
+			 NSXMLElement *tdTag = (NSXMLElement *)[trTag childAtIndex:0];
+			 NSXMLElement *divWrapperTag = (NSXMLElement *)[tdTag childAtIndex:0];
+			 NSXMLElement *divProfileHeadTag = (NSXMLElement *)[divWrapperTag childAtIndex:0];
+			 NSXMLElement *h2Tag = (NSXMLElement *)[divProfileHeadTag childAtIndex:0];
+			 NSXMLElement *aTag = (NSXMLElement *)[h2Tag childAtIndex:0];*/
+			
+			
+			NSString *theHref = [[aTag attributeForName:@"href"] stringValue]; 
+			validatedTwitterName = [theHref lastPathComponent];
+		}
 	} else {
 		userTimelineXMLDoc = [[NSXMLDocument alloc] initWithContentsOfURL:[NSURL URLWithString:
 																						  [[NSString stringWithFormat:@"http://twitter.com/statuses/user_timeline/%@.xml",twitterHandle]

@@ -26,4 +26,6 @@
 - (void)downloadFriendsXMLFileForTwitterer:(NSString *)twitterHandle;
 - (void)downloadFollowersXMLFileForTwitterer:(NSString *)twitterHandle withPassword:(NSString *)twitterPassword;
 
+- (void)addStatusLine:(NSString *)statusLine;
+
 @end

@@ -129,6 +129,7 @@
 			//						  [[[[[twittererTimelineXMLDoc childAtIndex:0] childAtIndex:0] childAtIndex:8] childAtIndex:5] stringValue]];
 			
 			NSImage *profileImage = [[NSImage alloc] initWithContentsOfURL:profileImageURL];
+			if (! profileImage) profileImage = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://static.twitter.com/images/default_profile_bigger.png"]];
 			[profileImage setSize:NSMakeSize(48,48)];
 			NSData *profileImageData = [NSBitmapImageRep representationOfImageRepsInArray:[profileImage representations] usingType:NSPNGFileType properties:nil];
 			

@@ -25,6 +25,11 @@
 	return self;
 }
 
+- (void)addStatusLine:(NSString *)statusLine;
+{
+	[statusDelegate addStatusLine:statusLine];
+}
+
 - (id)initWithStatusDelegate:(id)delegate andOperationQueue:(NSOperationQueue *)operationQueue;
 {
 	if (self = [super init]) {
