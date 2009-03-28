@@ -329,13 +329,14 @@
 	for (nextTwitterer in twitterersToValidate) {
 		// fetch the friends file for the twitterer
 		/*EPXMLDownloadOperation *downloadOperation = [[EPXMLDownloadOperation alloc] initWithStatusDelegate:self];
-		[downloadOperation setTwitterHandle:nextTwitterer];
-		[theMainOperationQueue addOperation:downloadOperation];
-		[downloadOperation release];*/
-		
-		NSString *correctedTwittererName = [self validateTwitterName:nextTwitterer];
-		if (correctedTwittererName != nil) {
-			[validatedTwittererNames addObject:correctedTwittererName];
+		 [downloadOperation setTwitterHandle:nextTwitterer];
+		 [theMainOperationQueue addOperation:downloadOperation];
+		 [downloadOperation release];*/
+		if (! [nextTwitterer isEqualToString:@""]) {
+			NSString *correctedTwittererName = [self validateTwitterName:nextTwitterer];
+			if (correctedTwittererName != nil) {
+				[validatedTwittererNames addObject:correctedTwittererName];
+			}
 		}
 	}
 	
@@ -359,7 +360,16 @@
 		// don't want to stop here if there are errors, because the URL could still
 		// have been loaded correctly
 		
-		NSXMLElement *htmlTag = (NSXMLElement *)[userTimelineXMLDoc childAtIndex:0];
+		NSError *xPathError = nil;
+		NSArray *h2Array = [userTimelineXMLDoc nodesForXPath:@"//h2[@class='thumb clearfix']" error:&xPathError];
+		if (xPathError) NSLog(@"%@",xPathError);
+		
+		xPathError = nil;
+		NSArray *aArray = [[h2Array objectAtIndex:0] nodesForXPath:@".//a" error:&xPathError];
+		NSXMLElement *aTag = (NSXMLElement *)[aArray objectAtIndex:0];
+		
+		
+		/*NSXMLElement *htmlTag = (NSXMLElement *)[userTimelineXMLDoc childAtIndex:0];
 		NSXMLElement *bodyTag = (NSXMLElement *)[htmlTag childAtIndex:1];
 		NSXMLElement *divContainerTag = (NSXMLElement *)[bodyTag childAtIndex:2];
 		NSXMLElement *tableTag = (NSXMLElement *)[divContainerTag childAtIndex:7];
@@ -369,7 +379,7 @@
 		NSXMLElement *divWrapperTag = (NSXMLElement *)[tdTag childAtIndex:0];
 		NSXMLElement *divProfileHeadTag = (NSXMLElement *)[divWrapperTag childAtIndex:0];
 		NSXMLElement *h2Tag = (NSXMLElement *)[divProfileHeadTag childAtIndex:0];
-		NSXMLElement *aTag = (NSXMLElement *)[h2Tag childAtIndex:0];
+		NSXMLElement *aTag = (NSXMLElement *)[h2Tag childAtIndex:0];*/
 
 		
 		NSString *theHref = [[aTag attributeForName:@"href"] stringValue]; 

@@ -121,8 +121,12 @@
 		
 		
 		if (! [[[[twittererTimelineXMLDoc childAtIndex:0] childAtIndex:0] name] isEqualToString:@"error"]) {
-			NSURL *profileImageURL = [NSURL URLWithString:
-									  [[[[[twittererTimelineXMLDoc childAtIndex:0] childAtIndex:0] childAtIndex:8] childAtIndex:5] stringValue]];
+			NSError *xPathError = nil;
+			NSArray *profileImageURLNodeArray = [twittererTimelineXMLDoc nodesForXPath:@".//profile_image_url" error:&xPathError];
+			NSString *profileImageURLString = [(NSXMLElement *)[profileImageURLNodeArray objectAtIndex:0] stringValue];
+			NSURL *profileImageURL = [NSURL URLWithString:profileImageURLString];
+			//NSURL *profileImageURL = [NSURL URLWithString:
+			//						  [[[[[twittererTimelineXMLDoc childAtIndex:0] childAtIndex:0] childAtIndex:8] childAtIndex:5] stringValue]];
 			
 			NSImage *profileImage = [[NSImage alloc] initWithContentsOfURL:profileImageURL];
 			[profileImage setSize:NSMakeSize(48,48)];
