@@ -65,14 +65,14 @@
 		int i;
 		NSArray *twitterersInChain = [nextChain chainStepsArray];
 		for (i=0; i < [twitterersInChain count]; i++) {
-			if (! [arrayOfTwitterersOnMap containsObject:[[twitterersInChain objectAtIndex:i] lowercaseString]]) {
-				[arrayOfTwitterersOnMap addObject:[[twitterersInChain objectAtIndex:i] lowercaseString]];
+			if (! [arrayOfTwitterersOnMap containsObject:[twitterersInChain objectAtIndex:i]]) {
+				[arrayOfTwitterersOnMap addObject:[twitterersInChain objectAtIndex:i]];
 			}
 			
 			if (i <= [twitterersInChain count] - 2) {
 				NSString *chainStep = [NSString stringWithFormat:@"%@ -> %@;",
-									   [[twitterersInChain objectAtIndex:i] lowercaseString],
-									   [[twitterersInChain objectAtIndex:i+1] lowercaseString]];
+									   [twitterersInChain objectAtIndex:i],
+									   [twitterersInChain objectAtIndex:i+1]];
 				
 				if (! [arrayOfMapChainSteps containsObject:chainStep]) [arrayOfMapChainSteps addObject:chainStep];
 			}
@@ -133,19 +133,7 @@
 			//NSURL *profileImageURL = [NSURL URLWithString:
 			//						  [[[[[twittererTimelineXMLDoc childAtIndex:0] childAtIndex:0] childAtIndex:8] childAtIndex:5] stringValue]];
 			
-			NSImage *profileImage = [[NSImage alloc] initWithContentsOfURL:profileImageURL];
-			if (! profileImage) {
-				[profileImage release];
-				profileImage = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://static.twitter.com/images/default_profile_bigger.png"]];
-			}
-			[profileImage setSize:NSMakeSize(48,48)];
-			NSData *profileImageData = [NSBitmapImageRep representationOfImageRepsInArray:[profileImage representations] usingType:NSPNGFileType properties:nil];
-			
-			[profileImageData
-			 writeToFile:[[NSString stringWithFormat:@"~/Library/Caches/Degrees of Tweetdom/%@.png",nextTwitterer] stringByExpandingTildeInPath]
-			 atomically:YES];
-			
-			[profileImage release];
+			[self writeProfileImageOfTwitterer:nextTwitterer toDiskUsingProfileImageURL:profileImageURL];
 		} else {
 			// there's an error; this happens if the updates are protected
 			
@@ -179,6 +167,48 @@
 	[twittererChainFinder release];
 	
 	return [theMapImage autorelease];	
+}
+
+- (void)writeProfileImageOfTwitterer:(NSString *)twittererHandle toDiskUsingProfileImageURL:(NSURL *)profileImageURL;
+{
+	NSImage *profileImage = [[NSImage alloc] initWithContentsOfURL:profileImageURL];
+	if (! profileImage) {
+		[profileImage release];
+		profileImage = [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://static.twitter.com/images/default_profile_bigger.png"]];
+	}
+	[profileImage setSize:NSMakeSize(48,48)];
+	
+	NSImage *profilePlusNameImage = [[NSImage alloc] initWithSize:NSMakeSize(70,70)];
+	[profilePlusNameImage lockFocus];
+	
+	[profileImage drawInRect:NSMakeRect(11,22,48,48)
+					fromRect:NSMakeRect(0,0,profileImage.size.width,profileImage.size.height)
+				   operation:NSCompositeSourceOver
+					fraction:1.0];
+	
+	NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys: 
+									[NSFont systemFontOfSize:10],NSFontAttributeName,
+									[NSColor blackColor], NSForegroundColorAttributeName,
+									nil];
+	NSSize stringSize = [twittererHandle sizeWithAttributes:attributes];
+	int xOffset = (70 - stringSize.width)/2;
+	int yOffset = (22 - stringSize.height)/2;
+	[twittererHandle drawAtPoint:NSMakePoint(xOffset, yOffset) withAttributes:attributes]; 
+	
+	[profilePlusNameImage unlockFocus];
+	
+	NSData *tiffRep = [profilePlusNameImage TIFFRepresentation];
+	[profilePlusNameImage release];
+	[profileImage release];
+	
+	NSImage *newProfileImage = [[NSImage alloc] initWithData:tiffRep];
+	NSData *profileImageData = [NSBitmapImageRep representationOfImageRepsInArray:[newProfileImage representations] usingType:NSPNGFileType properties:nil];
+	
+	[profileImageData
+	 writeToFile:[[NSString stringWithFormat:@"~/Library/Caches/Degrees of Tweetdom/%@.png",twittererHandle] stringByExpandingTildeInPath]
+	 atomically:YES];
+	
+	[newProfileImage release];
 }
 
 @end

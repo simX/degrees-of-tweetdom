@@ -21,4 +21,6 @@
 - (NSImage *)createMapOfTwitterers:(NSArray *)arrayOfTwitterers
 						 excluding:(NSArray *)twitterersToExclude;
 
+- (void)writeProfileImageOfTwitterer:(NSString *)twittererHandle toDiskUsingProfileImageURL:(NSURL *)profileImageURL;
+
 @end
