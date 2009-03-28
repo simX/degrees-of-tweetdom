@@ -8,11 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 @class EPFriendAndFollowerGetter;
+@class EPOperationQueue;
 
 
 @interface EPFavoriteFinder : NSObject {
 	id statusDelegate;
-	NSOperationQueue *theMainOperationQueue;
+	EPOperationQueue *theMainOperationQueue;
 	
 	EPFriendAndFollowerGetter *friendAndFollowerGetterInstance;
 }

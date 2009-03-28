@@ -21,6 +21,7 @@
 	return self;
 }
 
+
 - (void)dealloc;
 {
 	[favoriteFinderInstance release];

@@ -7,15 +7,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
+@class EPOperationQueue;
 
 
 @interface EPFriendAndFollowerGetter : NSObject {
-	NSOperationQueue *theMainOperationQueue;
+	EPOperationQueue *theMainOperationQueue;
 	id statusDelegate;
 }
 
 - (id)initWithStatusDelegate:(id)delegate;
-- (id)initWithStatusDelegate:(id)delegate andOperationQueue:(NSOperationQueue *)operationQueue;
+- (id)initWithStatusDelegate:(id)delegate andOperationQueue:(EPOperationQueue *)operationQueue;
 
 - (void)createCacheFolders;
 

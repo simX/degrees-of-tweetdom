@@ -25,6 +25,7 @@
 		A47AAA170E5F57730096953E /* EPAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = A47AAA160E5F57730096953E /* EPAppController.m */; };
 		A47AAABE0E6152090096953E /* EPTwittererChainFinderController.m in Sources */ = {isa = PBXBuildFile; fileRef = A47AAABD0E6152090096953E /* EPTwittererChainFinderController.m */; };
 		A47AAAE20E6154AD0096953E /* TwittererChainFinder.xib in Resources */ = {isa = PBXBuildFile; fileRef = A47AAAE00E6154AD0096953E /* TwittererChainFinder.xib */; };
+		A496DAE70F7E4CCA003C819D /* EPOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A496DAE60F7E4CCA003C819D /* EPOperationQueue.m */; };
 		A49FBE5A0DBACC1C000F47AF /* EPTwittererMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A49FBE590DBACC1C000F47AF /* EPTwittererMapper.m */; };
 		A4ACE4170DADD1C7007CE02D /* CHeap.mm in Sources */ = {isa = PBXBuildFile; fileRef = A4ACE4100DADD1C7007CE02D /* CHeap.mm */; };
 		A4ACE4180DADD1C7007CE02D /* CPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ACE4120DADD1C7007CE02D /* CPriorityQueue.m */; };
@@ -75,6 +76,8 @@
 		A47AAABC0E6152090096953E /* EPTwittererChainFinderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPTwittererChainFinderController.h; sourceTree = "<group>"; };
 		A47AAABD0E6152090096953E /* EPTwittererChainFinderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPTwittererChainFinderController.m; sourceTree = "<group>"; };
 		A47AAAE10E6154AD0096953E /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TwittererChainFinder.xib; sourceTree = "<group>"; };
+		A496DAE50F7E4CCA003C819D /* EPOperationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPOperationQueue.h; sourceTree = "<group>"; };
+		A496DAE60F7E4CCA003C819D /* EPOperationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPOperationQueue.m; sourceTree = "<group>"; };
 		A49FBE580DBACC1C000F47AF /* EPTwittererMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPTwittererMapper.h; sourceTree = "<group>"; };
 		A49FBE590DBACC1C000F47AF /* EPTwittererMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPTwittererMapper.m; sourceTree = "<group>"; };
 		A4ACE40E0DADD1C7007CE02D /* CCocoaObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCocoaObject.h; sourceTree = "<group>"; };
@@ -159,6 +162,8 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				A496DAE50F7E4CCA003C819D /* EPOperationQueue.h */,
+				A496DAE60F7E4CCA003C819D /* EPOperationQueue.m */,
 				A47AAA150E5F57730096953E /* EPAppController.h */,
 				A47AAA160E5F57730096953E /* EPAppController.m */,
 				A47AA5CD0E5C0EBB0096953E /* EPFriendAndFollowerGetter.h */,
@@ -321,6 +326,7 @@
 				A4C0587B0F7DEE700054A743 /* EPFavoritesDownloadOperation.m in Sources */,
 				A4C058820F7DF36F0054A743 /* EPFavoriteFinderController.m in Sources */,
 				A4C058890F7DF3920054A743 /* EPFavoriteFinder.m in Sources */,
+				A496DAE70F7E4CCA003C819D /* EPOperationQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

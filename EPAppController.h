@@ -13,7 +13,7 @@
 	NSMutableArray *arrayOfOperationQueues;
 	
 	IBOutlet NSTextField *numberOfNSOperationsTextField;
-	IBOutlet NSTextField *numberOfNSOperationQueuesTextField;
+	IBOutlet NSTextField *numberOfOperationQueuesTextField;
 }
 
 - (void)operationQueueCreatedNotification:(NSNotification *)notification;

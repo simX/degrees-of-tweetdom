@@ -12,6 +12,7 @@
 #import "EPFriendRecommenderController.h"
 #import "EPTwittererMapperController.h"
 #import "EPFavoriteFinderController.h"
+#import "EPOperationQueue.h"
 
 
 @implementation EPAppController
@@ -74,10 +75,10 @@
 
 - (void)updateActivityWindowStats;
 {
-	[numberOfNSOperationQueuesTextField setStringValue:[[NSNumber numberWithInt:[arrayOfOperationQueues count]] stringValue]];
+	[numberOfOperationQueuesTextField setStringValue:[[NSNumber numberWithInt:[arrayOfOperationQueues count]] stringValue]];
 	
 	int NSOperationCount = 0;
-	NSOperationQueue *currentOperationQueue = nil;
+	EPOperationQueue *currentOperationQueue = nil;
 	for (currentOperationQueue in arrayOfOperationQueues) {
 		NSOperationCount += [[currentOperationQueue operations] count];
 	}

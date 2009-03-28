@@ -9,6 +9,7 @@
 #import "EPFavoriteFinder.h"
 #import "EPFavoritesDownloadOperation.h"
 #import "EPFriendAndFollowerGetter.h"
+#import "EPOperationQueue.h"
 
 
 @implementation EPFavoriteFinder
@@ -18,12 +19,25 @@
 	statusDelegate = delegate;
 	[self createCacheFolder];
 	
-	theMainOperationQueue = [[NSOperationQueue alloc] init];
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"operationQueueCreated" object:theMainOperationQueue];
+	theMainOperationQueue = [[EPOperationQueue alloc] init];
+	//[[NSNotificationCenter defaultCenter] postNotificationName:@"operationQueueCreated" object:theMainOperationQueue];
 	
-	friendAndFollowerGetterInstance = [[EPFriendAndFollowerGetter alloc] initWithStatusDelegate:statusDelegate];
+	friendAndFollowerGetterInstance = [[EPFriendAndFollowerGetter alloc] initWithStatusDelegate:statusDelegate
+																			  andOperationQueue:theMainOperationQueue
+									   ];
 	
 	return [self init];
+}
+
+- (void)dealloc;
+{
+	NSLog(@"no, wut");
+	[friendAndFollowerGetterInstance release];
+	
+	//[[NSNotificationCenter defaultCenter] postNotificationName:@"operationQueueDeleted" object:theMainOperationQueue];
+	[theMainOperationQueue release];
+	
+	[super dealloc];
 }
 
 
@@ -47,6 +61,11 @@
 	NSArray *friendsOfTwitterer = [friendAndFollowerGetterInstance getFriendsForTwitterer:twitterHandle];
 	
 	NSString *currentFriend = nil;
+	for (currentFriend in friendsOfTwitterer) {
+		[self downloadFollowersForTwitterer:currentFriend]; 
+	}
+	
+	currentFriend = nil;
 	for (currentFriend in friendsOfTwitterer) {
 		[statusDelegate addStatusLine:[NSString stringWithFormat:@"Searching through favorites of %@",currentFriend]];
 		NSArray *arrayOfFavorites = [self getFavoritesForTwitterer:currentFriend];
@@ -74,6 +93,7 @@
 	}
 	
 	//NSLog(@"%@",authoredFavoritesDict);
+	[theMainOperationQueue cancelAllOperations];
 	return [authoredFavoritesDict autorelease];
 }
 
@@ -82,7 +102,6 @@
 {
 	NSString *XMLFileLocationPath = [[NSString stringWithFormat:@"~/Library/Caches/Degrees of Tweetdom/Favorites/%@.plist",twitterHandle] stringByExpandingTildeInPath];
 
-	[self downloadFollowersForTwitterer:twitterHandle];
 	int timeoutCounter = 0; 
 	int maxTimeout = 60; // seconds to wait for an XML file to download
 	

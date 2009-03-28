@@ -8,47 +8,44 @@
 
 #import "EPFriendAndFollowerGetter.h"
 #import "EPXMLDownloadOperation.h"
+#import "EPOperationQueue.h"
 
 
 @implementation EPFriendAndFollowerGetter
+
+- (id)init;
+{
+	if (self = [super init]) {
+		theMainOperationQueue = [[EPOperationQueue alloc] init];
+		
+		[self createCacheFolders];
+		//[[NSNotificationCenter defaultCenter] postNotificationName:@"operationQueueCreated" object:theMainOperationQueue];
+	}
+	
+	return self;
+}
 
 - (id)initWithStatusDelegate:(id)delegate;
 {
 	if (self = [super init]) {
 		statusDelegate = delegate;
-		theMainOperationQueue = [[NSOperationQueue alloc] init];
+		theMainOperationQueue = [[EPOperationQueue alloc] init];
 		
 		[self createCacheFolders];
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"operationQueueCreated" object:theMainOperationQueue];
+		//[[NSNotificationCenter defaultCenter] postNotificationName:@"operationQueueCreated" object:theMainOperationQueue];
 	}
 	
 	return self;
 }
 
-- (void)addStatusLine:(NSString *)statusLine;
-{
-	[statusDelegate addStatusLine:statusLine];
-}
-
-- (id)initWithStatusDelegate:(id)delegate andOperationQueue:(NSOperationQueue *)operationQueue;
+- (id)initWithStatusDelegate:(id)delegate andOperationQueue:(EPOperationQueue *)operationQueue;
 {
 	if (self = [super init]) {
 		statusDelegate = delegate;
 		theMainOperationQueue = operationQueue;
+		[theMainOperationQueue retain];
 		
 		[self createCacheFolders];
-	}
-	
-	return self;
-}
-
-- (id)init;
-{
-	if (self = [super init]) {
-		theMainOperationQueue = [[NSOperationQueue alloc] init];
-		
-		[self createCacheFolders];
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"operationQueueCreated" object:theMainOperationQueue];
 	}
 	
 	return self;
@@ -56,10 +53,15 @@
 
 - (void)dealloc;
 {
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"operationQueueDeleted" object:theMainOperationQueue];
+	//[[NSNotificationCenter defaultCenter] postNotificationName:@"operationQueueCreated" object:theMainOperationQueue];
 	[theMainOperationQueue release];
 	
 	[super dealloc];
+}
+
+- (void)addStatusLine:(NSString *)statusLine;
+{
+	[statusDelegate addStatusLine:statusLine];
 }
 
 - (void)createCacheFolders;

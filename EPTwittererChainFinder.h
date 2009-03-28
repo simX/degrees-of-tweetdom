@@ -11,11 +11,12 @@
 @class EPTwittererChain;
 @class CPriorityQueue;
 @class EPTwittererMapHintStore;
+@class EPOperationQueue;
 
 
 @interface EPTwittererChainFinder : NSObject {
 	int maxConcurrentOperations;
-	NSOperationQueue *theMainOperationQueue;
+	EPOperationQueue *theMainOperationQueue;
 	NSMutableArray *pastTwitterersArray;
 	
 	id statusDelegate;

@@ -12,6 +12,7 @@
 #import "EPXMLDownloadOperation.h"
 #import "EPTwittererMapHintStore.h"
 #import "EPFriendAndFollowerGetter.h"
+#import "EPOperationQueue.h"
 //#define MAX_CONCURRENT_OPERATIONS_ALLOWED 30
 #define TURN_ON_HTML_SCRAPING 1
 
@@ -28,8 +29,8 @@
 - (id)init;
 {
 	if (self = [super init]) {
-		theMainOperationQueue = [[NSOperationQueue alloc] init];
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"operationQueueCreated" object:theMainOperationQueue];
+		theMainOperationQueue = [[EPOperationQueue alloc] init];
+		//[[NSNotificationCenter defaultCenter] postNotificationName:@"operationQueueCreated" object:theMainOperationQueue];
 		
 		//[theMainOperationQueue setMaxConcurrentOperationCount:MAX_CONCURRENT_OPERATIONS_ALLOWED];
 		pastTwitterersArray = [[NSMutableArray alloc] init];
@@ -40,7 +41,7 @@
 
 - (void)dealloc;
 {
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"operationQueueDeleted" object:theMainOperationQueue];
+	//[[NSNotificationCenter defaultCenter] postNotificationName:@"operationQueueDeleted" object:theMainOperationQueue];
 	[theMainOperationQueue release];
 	[pastTwitterersArray release];
 	[super dealloc];
